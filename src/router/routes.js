@@ -14,7 +14,14 @@ function load(component) {
 }
 
 const route = [
-  { path: '/', component: load('MainScreen'), name: 'Main' },
+  { path: '/', name: 'MainScreen', component: load('MainScreen'), redirect: '/products/',
+    children: [
+      { path: '/products', name: 'ProductsScreen', component: load('products/ProductsScreen') },
+      { path: '/orders', name: 'OrdersScreen', component: load('orders/OrdersScreen') },
+      { path: '/contact', name: 'ContactScreen', component: load('contact/ContactScreen') },
+      { path: '/news', name: 'NewsScreen', component: load('news/NewsScreen') },
+    ],
+  },
 ];
 
 export default new Router({
