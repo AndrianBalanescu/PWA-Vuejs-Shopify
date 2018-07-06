@@ -1,6 +1,11 @@
 <script>
 export default {
-  name: 'MainScreen'
+  name: 'MainScreen',
+  data() {
+    return {
+
+    }
+  }
 }
 </script>
 
@@ -10,6 +15,7 @@ export default {
   </div>
 </template>
 
-<style lang="sass">
+<style lang="sass" scoped>
+@import '_includes'
 
 </style>
