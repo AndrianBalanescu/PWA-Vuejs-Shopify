@@ -3,6 +3,12 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
+/**
+ * @param  {} component
+ * @param  {} {return(
+ * @param  {} =>System.import(`./${component}.vue`
+ */
+
 function load(component) {
   return () => System.import(`./${component}.vue`);
 }
