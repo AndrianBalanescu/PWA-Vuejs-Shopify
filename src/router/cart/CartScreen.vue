@@ -6,7 +6,7 @@ export default {
 
 <template>
 <div>
-  <h1>Продукты</h1>
+  <h1>Корзина</h1>
 </div>
 </template>
 

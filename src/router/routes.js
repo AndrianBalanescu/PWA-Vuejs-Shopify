@@ -14,9 +14,9 @@ function load(component) {
 }
 
 const route = [
-  { path: '/', name: 'MainScreen', component: load('MainScreen'), redirect: '/products/',
+  { path: '/', name: 'MainScreen', component: load('MainScreen'),
     children: [
-      { path: '/products', name: 'ProductsScreen', component: load('products/ProductsScreen') },
+      { path: '/cart', name: 'CartScreen', component: load('cart/CartScreen') },
       { path: '/orders', name: 'OrdersScreen', component: load('orders/OrdersScreen') },
       { path: '/contact', name: 'ContactScreen', component: load('contact/ContactScreen') },
       { path: '/news', name: 'NewsScreen', component: load('news/NewsScreen') },

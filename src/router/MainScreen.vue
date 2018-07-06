@@ -17,7 +17,7 @@ export default {
         {
           id: 2,
           icon: 'shopping_cart',
-          route: 'ProductsScreen'
+          route: 'CartScreen'
         },
         {
           id: 3,
