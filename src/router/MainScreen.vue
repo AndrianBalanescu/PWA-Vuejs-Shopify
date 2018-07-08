@@ -17,7 +17,7 @@ export default {
         {
           id: 2,
           icon: 'shopping_cart',
-          route: 'CartScreen'
+          route: 'ShopScreen'
         },
         {
           id: 3,
@@ -54,7 +54,7 @@ export default {
 
 <template>
   <div id="main" class="main-screen">
-    <base-toolbar/>
+    <!-- <base-toolbar/> -->
       <router-view/>
     <base-footer :icons="links" v-model="activeItem"/>
   </div>
