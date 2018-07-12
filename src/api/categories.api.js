@@ -31,6 +31,26 @@ const categories = [
     name: 'Сэндвичи',
     svg: '',
   },
+  {
+    id: 6,
+    name: 'Крылья',
+    svg: '',
+  },
+  {
+    id: 7,
+    name: 'Крокеты',
+    svg: '',
+  },
+  {
+    id: 8,
+    name: 'Фри',
+    svg: '',
+  },
+  {
+    id: 9,
+    name: 'Соки',
+    svg: '',
+  },
 ];
 
 export default {
