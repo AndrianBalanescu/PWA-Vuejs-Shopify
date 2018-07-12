@@ -1,4 +1,5 @@
 import shopApi from '@/api/shop.api';
+import categoriesApi from '@/api/categories.api';
 
 const state = {
   shop: null,

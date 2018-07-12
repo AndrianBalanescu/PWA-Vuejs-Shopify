@@ -1,69 +1,43 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import categoriesApi from '@/api/categories.api'
+import ShopCard from './ShopCard'
 export default {
   name: 'ShopScreen',
+  components: {
+    ShopCard
+  },
   data() {
     return {
-
+      loading: false,
+      categories: []
     }
   },
   mounted() {
-    this.fetchShop()
+    this.fetchShop(),
+    this.fecthCategoriesForShop()
   },
   computed: mapGetters('shop', {
     shop: 'getShop',
   }),
   methods: {
     ...mapActions('shop', ['fetchShop']),
+    async fecthCategoriesForShop() {
+      this.loading = true
+      try {
+        const category = await categoriesApi.getCategories()
+        this.categories = category
+      } catch(error) {
+        console.log(error)
+      }
+    }
   }
 }
 </script>
 
 <template>
-  <div class="shop" v-if="shop">
-    <div class="shop__wrapper">
-      <v-parallax class="shop__background" height="200" src="/static/background.jpg"></v-parallax>
-      <v-layout align-center column>
-        <div class="shop__logo">
-          <img src="/static/logo.jpg" alt="">
-        </div>
-      </v-layout>
-    </div>
-    <div class="shop__information">
-      <div class="shop__address d-flex align-center justify-space-between">
-        <div class=" d-flex align-center">
-          <i class="material-icons">phone</i>
-          <h3>{{shop.phone}}</h3>
-        </div>
-        <div class="divider_vertical"></div>
-        <div class=" d-flex align-center">
-          <i class="material-icons">place</i>
-          <h3>{{shop.address}}</h3>
-        </div>
-      </div>
-      <div class="shop__information__block d-flex align-center justify-center">
-        <v-flex xs4>
-            <div class="shop__information__item">
-              <small>Доставка</small><br>
-              <span class="accent">{{shop.shipment}} сом</span>
-            </div>
-          </v-flex>
-          <v-flex xs4>
-            
-            <div class="shop__information__item">
-              <small>Мин. заказ</small><br>
-              <span>{{shop.order}} сом</span>
-            </div>
-          </v-flex>
-          <v-flex xs4>
-            
-            <div class="shop__information__item">
-              <small>Время (мин)</small><br>
-              <span>{{shop.workingHours}}</span>
-            </div>
-          </v-flex>
-      </div>
-    </div>
+  <div v-if="shop">
+    <shop-card :shop="shop"/>
   </div>
 </template>
 
