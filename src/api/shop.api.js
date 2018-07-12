@@ -1,7 +1,7 @@
 export const shop = {
-  phone: '+886777065834',
-  address: 'ул. Алихана Букейхана 20А',
-  shipment: 100,
+  phone: '+996777065834',
+  address: 'ул. Жибек-Жолу 20А',
+  shipment: 150,
   order: 400,
   workingHours: '40-60',
   categories: [],
