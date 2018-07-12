@@ -2,10 +2,12 @@
 import { mapGetters, mapActions } from 'vuex'
 import categoriesApi from '@/api/categories.api'
 import ShopCard from './ShopCard'
+import CategoriesList from './CategoriesList'
 export default {
   name: 'ShopScreen',
   components: {
-    ShopCard
+    ShopCard,
+    CategoriesList
   },
   data() {
     return {
@@ -38,6 +40,7 @@ export default {
 <template>
   <div v-if="shop">
     <shop-card :shop="shop"/>
+    <categories-list :categories="shop.categories" />
   </div>
 </template>
 
