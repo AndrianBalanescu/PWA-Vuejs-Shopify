@@ -9,6 +9,7 @@ import 'material-design-icons-iconfont/dist/material-design-icons.css';
 
 import App from './App';
 import router from './router/routes';
+import store from './store/store';
 
 Vue.use(Vuetify);
 
@@ -18,6 +19,7 @@ Vue.config.productionTip = false;
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>',
 });

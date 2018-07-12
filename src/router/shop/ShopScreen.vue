@@ -1,11 +1,26 @@
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
-  name: 'ShopScreen'
+  name: 'ShopScreen',
+  data() {
+    return {
+
+    }
+  },
+  mounted() {
+    this.fetchShop()
+  },
+  computed: mapGetters('shop', {
+    shop: 'getShop',
+  }),
+  methods: {
+    ...mapActions('shop', ['fetchShop']),
+  }
 }
 </script>
 
 <template>
-  <div class="shop">
+  <div class="shop" v-if="shop">
     <div class="shop__wrapper">
       <v-parallax class="shop__background" height="200" src="/static/background.jpg"></v-parallax>
       <v-layout align-center column>
@@ -18,34 +33,33 @@ export default {
       <div class="shop__address d-flex align-center justify-space-between">
         <div class=" d-flex align-center">
           <i class="material-icons">phone</i>
-          <h3>+996 (777) 043 823</h3>
+          <h3>{{shop.phone}}</h3>
         </div>
         <div class="divider_vertical"></div>
         <div class=" d-flex align-center">
           <i class="material-icons">place</i>
-          <h3>
-            ул. Сейфулина 20А</h3>
+          <h3>{{shop.address}}</h3>
         </div>
       </div>
       <div class="shop__information__block d-flex align-center justify-center">
         <v-flex xs4>
             <div class="shop__information__item">
               <small>Доставка</small><br>
-              <span class="accent">100 сом</span>
+              <span class="accent">{{shop.shipment}} сом</span>
             </div>
           </v-flex>
           <v-flex xs4>
             
             <div class="shop__information__item">
               <small>Мин. заказ</small><br>
-              <span>400 сом</span>
+              <span>{{shop.order}} сом</span>
             </div>
           </v-flex>
           <v-flex xs4>
             
             <div class="shop__information__item">
               <small>Время (мин)</small><br>
-              <span>60-120</span>
+              <span>{{shop.workingHours}}</span>
             </div>
           </v-flex>
       </div>
